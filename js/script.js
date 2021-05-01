@@ -76,6 +76,7 @@ $(document).ready(function(){
   const blue = 'blue';
   const pink = 'pink'
 
+  //milestone 2
   //faccio un ciclo map() per estrapolare l'array cats e modificarlo aggiungendo dentro ogni oggetto cat un oggetto ribon contente proprieta color e opacity
   const ribbonCats = cats.map( (cat) => {
 
@@ -96,12 +97,17 @@ $(document).ready(function(){
     const maleCats = ribbonCats.filter((cat)=> cat.gender=== 'male');
     const femaleCats = ribbonCats.filter((cat)=> cat.gender=== 'female');
 
+    
     maleCats.forEach((cat) => $('#cats-male ul').append(printToPage(cat, cat.ribbon.ribbonColor)));
+
     femaleCats.forEach((cat) => $('#cats-female ul').append(printToPage(cat, cat.ribbon.ribbonColor)));
     
 
-
-    console.log(maleCats);
-    console.log(femaleCats);
+    //milestone 3
+    //clono in un nuovo array l'array femaleCats e maleCats
+    const oderedCats = [...femaleCats, ...maleCats];
+    oderedCats.forEach((cat) => $('#cats-ordered ul').append(printToPage(cat, cat.ribbon.ribbonColor)));
+    
+    console.log(oderedCats);
   
 });
